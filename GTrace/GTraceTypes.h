@@ -80,7 +80,7 @@ typedef struct _GTrace {
 #pragma pack(pop)
 
 #ifdef __cplusplus
-static_assert(sizeof(sGTrace) == 64, "sGTrace != 64 bytes");
+//static_assert(sizeof(sGTrace) == 64, "sGTrace != 64 bytes");
 #else
 #include <AssertMacros.h>
 __Check_Compile_Time(sizeof(sGTrace) == 64);

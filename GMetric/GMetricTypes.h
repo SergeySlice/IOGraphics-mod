@@ -8,7 +8,7 @@
 #ifndef GMetricTypes_h
 #define GMetricTypes_h
 
-#include <os/base.h>
+//#include <os/base.h>
 #include <stdint.h>
 #include <sys/kdebug.h>
 #include <AssertMacros.h>
@@ -19,6 +19,10 @@ __BEGIN_DECLS
 
 #define kGMetricMaximumLineCount        8192 // @64b == 512k
 #define kGMetricDefaultLineCount        2048 // @64b == 128K
+
+#define OS_ENUM(_name, _type, ...) \
+enum { __VA_ARGS__ }; typedef _type _name##_t
+
 
 /*!
  gmetric_command_t

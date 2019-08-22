@@ -1247,11 +1247,11 @@
 				INFOPLIST_FILE = "Info-IOGraphicsFamily.plist";
 				KERNEL_MODULE = YES;
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/system";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MODULE_IOKIT = YES;
 				MODULE_NAME = com.apple.iokit.IOGraphicsFamily;
 				MODULE_START = IOGraphicsFamilyModuleStart;
-				MODULE_VERSION = 1.5.1;
+				MODULE_VERSION = 1.5.2;
 				OTHER_CFLAGS = (
 					"-D",
 					_KERNEL_,
@@ -1264,7 +1264,7 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.iokit.IOGraphicsFamily;
 				PRODUCT_NAME = IOGraphicsFamily;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.11;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -1294,11 +1294,11 @@
 				INFOPLIST_FILE = "Info-IOGraphicsFamily.plist";
 				KERNEL_MODULE = YES;
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/system";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MODULE_IOKIT = YES;
 				MODULE_NAME = com.apple.iokit.IOGraphicsFamily;
 				MODULE_START = IOGraphicsFamilyModuleStart;
-				MODULE_VERSION = 1.5.1;
+				MODULE_VERSION = 1.5.2;
 				OTHER_CFLAGS = (
 					"-D",
 					_KERNEL_,
@@ -1313,7 +1313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.iokit.IOGraphicsFamily;
 				PRODUCT_NAME = IOGraphicsFamily;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(KEXT_FRAMEWORK)/Contents/Headers/graphics";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.11;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -1342,11 +1342,11 @@
 				INFOPLIST_FILE = "Info-IOGraphicsFamily.plist";
 				KERNEL_MODULE = YES;
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/system";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MODULE_IOKIT = YES;
 				MODULE_NAME = com.apple.iokit.IOGraphicsFamily;
 				MODULE_START = IOGraphicsFamilyModuleStart;
-				MODULE_VERSION = 1.5.1;
+				MODULE_VERSION = 1.5.2;
 				OTHER_CFLAGS = (
 					"-D",
 					_KERNEL_,
@@ -1359,7 +1359,7 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.iokit.IOGraphicsFamily;
 				PRODUCT_NAME = IOGraphicsFamily;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.11;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wall",

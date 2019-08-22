@@ -54,7 +54,7 @@
 #include <sys/systm.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
-#include <stdatomic.h>
+//#include <stdatomic.h>
 
 #define IOFRAMEBUFFER_PRIVATE
 #include <IOKit/graphics/IOGraphicsPrivate.h>
@@ -206,6 +206,10 @@ static const char * processConnectChangeModeNames[] =
     OSBitAndAtomic(~(bit), &((inst)->__private->fAPIState));\
 }while(0)
 
+//*********************************************
+#define AbsoluteTime_to_scalar(x)  (*(uint64_t *)(x))
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // Static Global Variables
@@ -261,7 +265,8 @@ static bool                 gIOFBDesktopModeAllowed = true;
 
 IOOptionBits                gIOFBCurrentClamshellState;
 static IOOptionBits         gIOFBLastClamshellState;
-static atomic_uint_fast64_t gIOFBProbeGeneration;
+//static atomic_uint_fast64_t gIOFBProbeGeneration;
+static uint64_t             gIOFBProbeGeneration;
 static uint64_t             gIOFBLastProbeGeneration;
 int32_t                     gIOFBHaveBacklight = -1;
 static IOOptionBits         gIOFBLastReadClamshellState;
@@ -6913,12 +6918,13 @@ void IOFramebuffer::systemWork(OSObject * owner,
                 resetClamshell(kIOFBClamshellProbeDelayMS,
                                DBG_IOG_SOURCE_SYSWORK_READCLAMSHELL);
             }
-
+/*
             IOG_KTRACE(DBG_IOG_CLAMSHELL, DBG_FUNC_NONE,
                        0, DBG_IOG_SOURCE_SYSWORK_READCLAMSHELL,
                        0, kOSBooleanTrue == clamshellProperty,
                        0, gIOFBCurrentClamshellState,
                        0, desktopMode);
+ */
 		}
         else {
             IOG_KTRACE(DBG_IOG_CLAMSHELL, DBG_FUNC_NONE,
@@ -9572,7 +9578,7 @@ void IOFramebuffer::initFB(void)
 		}
 		DEBG1(thisName, " initFB: needsInit %d logo %d\n", 
 				__private->needsInit, logo);
-		if (gIOFBVerboseBoot || ((2 != __private->needsInit) && (!gIOFBBlackBootTheme)))
+		if (1 || gIOFBVerboseBoot || ((2 != __private->needsInit) && (!gIOFBBlackBootTheme)))
 		{
 			IOFramebufferBootInitFB(
 				fVramMap->getVirtualAddress(),
@@ -10091,7 +10097,7 @@ void IOFramebuffer::close( void )
             bool bFilled = false;
 
             // For verbose, try to set the pixels to black and fallback to gamma
-            if (gIOFBVerboseBoot) {
+            if (1 || gIOFBVerboseBoot) {
                 bFilled = fillFramebufferBlack();
             }
 
@@ -14709,7 +14715,7 @@ static uint64_t systemBootEpochTime()
     clock_nsec_t epochNanosecs = 0;
     clock_get_calendar_nanotime(&epochSecs, &epochNanosecs);
 
-    uint64_t machTimeSinceBoot = mach_continuous_time();
+  uint64_t machTimeSinceBoot = mach_absolute_time(); // mach_continuous_time();
     uint64_t nanosecSinceBoot = 0;
 
     absolutetime_to_nanoseconds(machTimeSinceBoot, &nanosecSinceBoot);

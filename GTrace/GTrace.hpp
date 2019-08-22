@@ -300,7 +300,7 @@ private:
         const auto tag = entry.traceEntry.argsTag.TAG.targ[tagIndex];
         if (kGTRACE_ARGUMENT_OBFUSCATE & tag) {
             vm_offset_t     vmRep = 0;
-            vm_kernel_addrperm_external(static_cast<vm_offset_t>(ret), &vmRep);
+   //         vm_kernel_addrperm_external(static_cast<vm_offset_t>(ret), &vmRep);
             ret = (static_cast<uint64_t>(vmRep));
         }
 #endif /*defined(_KERNEL_) || defined (KERNEL)*/

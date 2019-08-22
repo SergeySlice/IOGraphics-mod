@@ -151,7 +151,7 @@ IOReturn GMetricsRecorder::recordMetric(const gmetric_domain_t domain,
         metric.header.cpu = 0;
         metric.tid = ((uintptr_t)pthread_self()) & kTHREAD_ID_MASK;
 #endif /* defined(_KERNEL_) || defined(KERNEL) */
-        metric.timestamp = mach_continuous_time();
+      metric.timestamp = mach_absolute_time(); //mach_continuous_time();
         metric.data = arg1;
 
 #if defined(_KERNEL_) || defined(KERNEL)

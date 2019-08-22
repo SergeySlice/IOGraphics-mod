@@ -22,6 +22,10 @@ class GTrace;
 extern GTrace *     gGTrace;
 extern GMetricsRecorder * gGMetrics;
 
+#define KERNEL_DEBUG_CONSTANT_RELEASE(x, a, b, c, d, e) \
+KERNEL_DEBUG_CONSTANT_IST(~KDEBUG_ENABLE_PPT, x, a, b, c, d, 0)
+
+
 #ifndef IOG_KTRACE
     #define IOG_KTRACE(_f_, _t_, _t1_, _a1_, _t2_, _a2_, _t3_, _a3_, _t4_, _a4_) \
         do{\
